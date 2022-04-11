@@ -4,25 +4,33 @@ float quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight;
 //
 void setup()
 {
-  size( 400, 800 ); //fullScreen(), displayWidth, displayHeight
+  size( 400, 300 ); //fullScreen(), displayWidth, displayHeight
   //Landscape, not portrait nor square
   String landscape = "You are good to go!";
-  String portrait = ;
-  String displayOritentation = ( width >= height ) ? landscape : "Bruh, turn your phun!" ;
-  println ( displayOritentation );
+  String portrait = "Bruh, turn your phun!";
+  String displayOritentation = ( width >= height ) ? landscape : portrait ;
+  if ( displayOritentation==portrait ) println ( displayOritentation );
   if ( displayOritentation==landscape ) appWidth = width; //option displayWidth
   if ( displayOritentation==landscape ) appHeight = height; //option displayHeight
-  println (appWidth, appHeight);
+  //println (appWidth, appHeight);
+  //
   //Population
-  //quitButtonX = ;
-  //quitButtonY = ;
-  //quitButtonWidth = ;
-  //quitButtonHeight = ;
+  int centerX = appWidth*1/2;
+  int centerY = appHeight*1/2;
+  quitButtonX = centerX - appWidth*1/4; //1/4 on one-half, 1/4 on other half
+  quitButtonY = centerY - appHeight*1/4;
+  quitButtonWidth = appWidth*1/2;
+  quitButtonHeight = appHeight*1/2;
 }//End setup
 //
 void draw()
 {
+  //DisplayOrientation Finishing Code
+  //
+  buttonColour = purple;
+  fill(buttonColour);
   rect( quitButtonX, quitButtonY, quitButtonWidth, quitButtonHeight );
+  fill(resetWhite); //Not night mode compatible, must change
 }//End draw
 //
 void keyPressed()
